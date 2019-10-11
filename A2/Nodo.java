@@ -1,14 +1,13 @@
 public class Nodo {
     
-    private String dato;
+    private ExpedienteMedico expedienteMedico;
     private String name;
     private Nodo izq, der;
 
-    public Nodo(String dato, Nodo izq, Nodo der, String name) {
-        this.dato = dato;
+    public Nodo(ExpedienteMedico expedienteMedico, Nodo izq, Nodo der) {
+        this.expedienteMedico = expedienteMedico;
         this.izq = izq;
         this.der = der;
-        this.name = name;
     }
 
     public String getName(){
@@ -19,12 +18,12 @@ public class Nodo {
         this.name = name;
     }
 
-    public String getDato() {
-        return dato;
+    public ExpedienteMedico getexpedienteMedico() {
+        return expedienteMedico;
     }
 
-    public void setDato(String dato) {
-        this.dato = dato;
+    public void setexpedienteMedico(ExpedienteMedico expedienteMedico) {
+        this.expedienteMedico = expedienteMedico;
     }
 
     public Nodo getIzq() {

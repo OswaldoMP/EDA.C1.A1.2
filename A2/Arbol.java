@@ -6,14 +6,14 @@ public class Arbol{
         this.nodoRaiz = null;
     }
 
-    public void agregar(String dato,String name,int flag) {
-        if (flag == 0) {
-            Nodo nodoNew = new Nodo(dato, null, null,name);
+    public void agregar(ExpedienteMedico expedienteMedico,int flag) {
+        if (flag == 1) {
+            Nodo nodoNew = new Nodo(expedienteMedico, null, null);
             add(nodoNew, nodoRaiz);
             
         }else{
 
-        Nodo nodoNew2 = new Nodo(dato, null, null,name);
+        Nodo nodoNew2 = new Nodo(expedienteMedico, null, null);
         addName(nodoNew2,nodoRaiz);
         }
         //return true;
@@ -24,7 +24,7 @@ public class Arbol{
         if (this.nodoRaiz == null) {
             nodoRaiz = nodoNew;
         } else {
-            if (nodoNew.getDato().compareTo(pivote.getDato())<0) {
+            if (nodoNew.getexpedienteMedico().getApellido().compareTo(pivote.getexpedienteMedico().getApellido())<0) {
                 if (pivote.getIzq() == null) {
                     pivote.setIzq(nodoNew);
                 } else {
@@ -45,7 +45,7 @@ public class Arbol{
         if (this.nodoRaiz == null) {
             nodoRaiz = nodoNew;
         } else {
-            if (nodoNew.getName().compareTo(pivote.getName())<0) {
+            if (nodoNew.getexpedienteMedico().getExpediente().compareTo(pivote.getexpedienteMedico().getExpediente())<0) {
                 if (pivote.getIzq() == null) {
                     pivote.setIzq(nodoNew);
                 } else {
@@ -69,7 +69,7 @@ public class Arbol{
     public void inOrden(Nodo nodo){
         if(nodo!=null){
             inOrden(nodo.getIzq());
-            System.out.println(nodo.getDato());
+            System.out.println(nodo.getexpedienteMedico().toString());
             inOrden(nodo.getDer());
         }
     }
@@ -77,7 +77,7 @@ public class Arbol{
     public void inOrdenName(Nodo nodo){
         if(nodo!=null){
             inOrdenName(nodo.getIzq());
-            System.out.println(nodo.getName());
+            System.out.println(nodo.getexpedienteMedico().toStringExpediente());
             inOrdenName(nodo.getDer());
         }
     }
